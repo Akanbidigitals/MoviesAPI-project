@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Movies.Application.Model
 {
-    public class Rating
+    public class Ratings
     {
         [Key]
         public int Id { get; set; }
@@ -16,6 +16,9 @@ namespace Movies.Application.Model
         public Guid UserId {  get; set; }
         [ForeignKey(nameof(Movie))]
         public Guid MovieID {  get; set; }
-        public  int Ratings {  get; set; }
+        public  int Rating {  get; set; }
+
+        //public virtual Movie Movie { get; set; }
+        //public virtual User User {  get; set; } 
     }
 }

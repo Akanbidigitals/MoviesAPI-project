@@ -55,7 +55,7 @@ namespace Movies.Application.Repositories
             
         }
 
-        public async Task<bool> ExistByIdAsync(Guid id, Guid userid = default)
+        public async Task<bool> ExistByIdAsync(Guid id, Guid? userid = default)
         {
             var Exist = await _ctx.Movies.AnyAsync(x => x.Id == id);
             if (Exist)
@@ -66,13 +66,13 @@ namespace Movies.Application.Repositories
 
         }
 
-        public async Task<IEnumerable<Movie>> GetAllAsync(Guid userid = default)
+        public async Task<IEnumerable<Movie>> GetAllAsync(Guid? userid = default)
         {
             var allmovies = await _ctx.Movies.ToListAsync();
             return allmovies;
         }
 
-        public async Task<Movie?> GetByIdAsync(Guid id, Guid userid = default)
+        public async Task<Movie?> GetByIdAsync(Guid id, Guid? userid = default)
         {
             var getbyId = await _ctx.Movies.FirstOrDefaultAsync(x => x.Id == id);
             if(getbyId is null)
@@ -82,7 +82,7 @@ namespace Movies.Application.Repositories
             return getbyId;
         }
 
-        public async Task<Movie?> GetBySlug(string slug, Guid userid = default)
+        public async Task<Movie?> GetBySlug(string slug, Guid? userid = default)
         {
             var getbySlug = await _ctx.Movies.FirstOrDefaultAsync(x => x.Slug == slug);
             if(getbySlug is null)
@@ -92,7 +92,7 @@ namespace Movies.Application.Repositories
             return getbySlug;
         }
 
-        public async Task<bool> UpdateAsync(Movie movie, Guid userid = default)
+        public async Task<bool> UpdateAsync(Movie movie, Guid? userid = default)
         {
             var updateMovie = await _ctx.Movies.FirstOrDefaultAsync(x => x.Id == movie.Id);
             if(updateMovie is null)

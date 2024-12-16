@@ -16,6 +16,8 @@ namespace Movies.Application.Model
         public bool Admin { get; set; }
         public bool Trusted_member { get; set; }
 
+     
+
 
     }
    

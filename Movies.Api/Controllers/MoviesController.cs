@@ -18,14 +18,14 @@ namespace Movies.Api.Controllers
         {
             _movieRepository = movieRepository;
         }
-      [Authorize(AuthConstants.TrustedMemeberPolicyName)]
+      //[Authorize(AuthConstants.AdminUserPolicyName)]
         [HttpPost(ApiEndpoints.Movies.Create)]
         public async Task<IActionResult> Create([FromBody] CreateMovieRequest request)
         {
             var movie = request.MapToMovie();
 
-            await _movieRepository.CreateAsync(movie);
-            return CreatedAtAction(nameof(Get), new {idOrSlug = movie.Id}, movie);
+           var res =  await _movieRepository.CreateAsync(movie);
+            return Ok(res);
         }
 
         [HttpGet(ApiEndpoints.Movies.Get)]
@@ -33,7 +33,7 @@ namespace Movies.Api.Controllers
         {
             var userId = HttpContext.GetUserId();
             var movie = Guid.TryParse(idOrSlug, out var id)? await _movieRepository.GetByIdAsync(id,userId): 
-                await _movieRepository.GetBySlug(idOrSlug,userId);
+                await _movieRepository.GetBySlug(idOrSlug, userId);
             if (movie is null)
             {
                 return NotFound();

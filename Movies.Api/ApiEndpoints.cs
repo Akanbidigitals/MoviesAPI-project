@@ -34,6 +34,7 @@ namespace Movies.Api
             public const string Create = UserBase;
             public const string Getall = UserBase;
             public const string Get = $"{UserBase}/{{id:guid}}";
+            public const string GetJwtToken = $"{UserBase}/{{id:guid}}";
 
         }
     }

@@ -34,24 +34,24 @@ namespace Movies.Application.Services
             return (_movierepo.DeleteByIdAsync(id));
         }
 
-        public Task<IEnumerable<Movie>> GetAllAsync(Guid userid = default)
+        public Task<IEnumerable<Movie>> GetAllAsync(Guid? userid = default)
         {
             return _movierepo.GetAllAsync(userid);
         }
 
-        public Task<Movie?> GetByIdAsync(Guid id, Guid userid = default)
+        public Task<Movie?> GetByIdAsync(Guid id, Guid? userid = default)
         {
             return _movierepo.GetByIdAsync(id,userid);
         }
 
-        public Task<Movie?> GetBySlug(string slug, Guid userid = default    )
+        public Task<Movie?> GetBySlug(string slug, Guid? userid = default    )
         {
             return _movierepo.GetBySlug(slug,userid);
         }
 
       
 
-        public async Task<Movie?> UpdateAsync(Movie movie, Guid userid = default)
+        public async Task<Movie?> UpdateAsync(Movie movie, Guid? userid = default)
         {
           //  await _validator.ValidateAndThrowAsync(movie);
             var movieExist = await _movierepo.ExistByIdAsync(movie.Id);

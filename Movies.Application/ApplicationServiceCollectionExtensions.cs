@@ -16,6 +16,8 @@ namespace Movies.Application
         {
             services.AddScoped<IMovieRepository, MovieRepository>();
             services.AddScoped<IMovieService,MovieService>();
+            services.AddScoped<IRatingRepository,RatingRepository>();
+            services.AddScoped<IRatingService,RatingService>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddValidatorsFromAssemblyContaining<IApplicationMarker>(ServiceLifetime.Scoped);
             return services;

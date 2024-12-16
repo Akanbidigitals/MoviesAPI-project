@@ -8,6 +8,6 @@ namespace Movies.Contracts.Responses
 {
     public class UsersResponse
     {
-        public required IEnumerable<UserResponse> Users { get; init; } = Enumerable.Empty<UserResponse>();
+        public required IEnumerable<UserResponse> ListOfUsers { get; init; } = Enumerable.Empty<UserResponse>();
     }
 }

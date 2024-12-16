@@ -10,12 +10,12 @@ namespace Movies.Application.Services
     {
         Task<bool> CreateAsync(Movie movie);
 
-        Task<Movie?> GetByIdAsync(Guid id,Guid userid = default);
+        Task<Movie?> GetByIdAsync(Guid id,Guid? userid = default);
 
-        Task<IEnumerable<Movie>> GetAllAsync(Guid userid = default);
+        Task<IEnumerable<Movie>> GetAllAsync(Guid? userid = default);
         Task<bool> DeleteByIdAsync(Guid id);
-        Task<Movie?> GetBySlug(string slug, Guid userid = default);
-        Task<Movie?> UpdateAsync(Movie movie, Guid userid = default);
+        Task<Movie?> GetBySlug(string slug, Guid? userid = default);
+        Task<Movie?> UpdateAsync(Movie movie, Guid? userid = default);
         
     }
 }

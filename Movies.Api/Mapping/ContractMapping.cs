@@ -62,6 +62,25 @@ namespace Movies.Api.Mapping
                 Trusted_member = request.Trusted_member
             };
         }
+        
+        public static UserResponse MaptoUserResponse(this User user)
+        {
+            return new UserResponse
+            {
+                UserId = user.UserId,
+                Admin = user.Admin,
+                Trusted_member = user.Trusted_member
+
+            };
+        }
+        public static UsersResponse MapToUserResponse(this IEnumerable<User> users)
+        {
+            return new UsersResponse
+            {
+               ListOfUsers =  users.Select(MaptoUserResponse)
+            };
+        }
+        
     }
 
     
